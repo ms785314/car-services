@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -13,8 +14,8 @@ const Login = () => {
     }
     return (
         <div className='container vh-100 pt-5'>
-            <h1 className=' text-primary'>Please Login</h1>
-            <Form onSubmit={handleSubmit} style={{width:'300px',margin:'auto'}}>
+            <h1 className=' text-primary text-center'>Please Login</h1>
+            <Form onSubmit={handleSubmit} style={{width:'400px',margin:'auto',boxShadow:'0 0 5px rgba(0,0,0,.4)', padding:'20px 40px'}} >
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" ref={emailRef} placeholder="Enter email" />
@@ -34,6 +35,7 @@ const Login = () => {
                     Submit
                 </Button>
             </Form>
+            <p className='text-center mt-2'>New here? <Link to='/register'>Please Register</Link></p>
         </div>
     );
 };
