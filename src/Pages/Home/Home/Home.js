@@ -1,11 +1,14 @@
 import React from 'react';
+import Header from '../../Shared/Header/Header';
+// import Navbarr from '../../Shared/Navbar/Navbar';
+
 import Exparts from '../Exparts/Exparts';
 import Services from '../Services/Services';
 
 const Home = () => {
     return (
         <div>
-            <h1>Welcome home</h1>
+            <Header></Header>
             <Services></Services>
             <Exparts></Exparts>
         </div>

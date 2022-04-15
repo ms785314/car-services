@@ -19,7 +19,7 @@ const Exparts = () => {
         {id:6, name:'smith', img:ex6}
     ]
     return (
-        <div className='container'>
+        <div id='exparts' className='container'>
             <h1 className='my-5'>hello from exparts</h1>
             <Row xs={1} md={3} className="g-4 align-items-center">
             {

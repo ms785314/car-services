@@ -6,7 +6,7 @@ import { Card, Col } from 'react-bootstrap';
 const Expart = ({expart}) => {
     const {name,img} = expart;
     return (
-        <div>
+        <div >
             <Col>
                 <Card style={{ width: '18rem' }} className='mt-5'>
                     <Card.Img variant="top" src={img} />
