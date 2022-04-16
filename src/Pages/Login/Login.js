@@ -1,16 +1,32 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const Login = () => {
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useSignInWithEmailAndPassword(auth);
     const emailRef = useRef('');
     const passRef = useRef('');
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
 
     const handleSubmit = event=>{
         event.preventDefault();
         const email = emailRef.current.value;
         const pass = passRef.current.value;
-        console.log(email,pass);
+        // console.log(email,pass);
+        signInWithEmailAndPassword(email,pass)
+    }
+    if(user){
+        navigate(from, { replace: true });
     }
     return (
         <div className='container vh-100 pt-5'>
@@ -31,8 +47,9 @@ const Login = () => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
+                {loading && <p className='text-center'>Please wait...</p>}
                 <Button variant="primary" type="submit">
-                    Submit
+                    Log In
                 </Button>
             </Form>
             <p className='text-center mt-2'>New here? <Link to='/register'>Please Register</Link></p>

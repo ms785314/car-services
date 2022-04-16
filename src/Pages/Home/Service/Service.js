@@ -8,7 +8,7 @@ const Service = ({ service }) => {
     const { id,name, img,  description } = service;
     const navigate = useNavigate();
     const go = (id) =>{
-        navigate(`service/${id}`);
+        navigate(`/service/${id}`);
     }
     return (
         <div>
