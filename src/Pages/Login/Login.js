@@ -3,6 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Socials from '../Socials/Socials';
 
 const Login = () => {
     const [
@@ -53,6 +54,8 @@ const Login = () => {
                 </Button>
             </Form>
             <p className='text-center mt-2'>New here? <Link to='/register'>Please Register</Link></p>
+
+            <Socials></Socials>
         </div>
     );
 };
